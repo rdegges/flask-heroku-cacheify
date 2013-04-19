@@ -15,7 +15,11 @@ setup(
     include_package_data = True,
 
     # Package dependencies:
-    install_requires = ['Flask-Cache>=0.11.1'],
+    install_requires = [
+        'Flask-Cache>=0.11.1',
+        'pylibmc>=1.2.3',
+        'redis>=2.7.2'
+    ],
 
     # Metadata for PyPI:
     author = 'Randall Degges',
