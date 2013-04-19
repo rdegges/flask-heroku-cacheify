@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Flask-heroku-cacheify : Automatic Flask cache configuration on Heroku." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Flask-heroku-cacheify</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/rdegges/flask-heroku-cacheify">View on GitHub</a>
+
+          <h1 id="project_title">Flask-heroku-cacheify</h1>
+          <h2 id="project_tagline">Automatic Flask cache configuration on Heroku.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/rdegges/flask-heroku-cacheify/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/rdegges/flask-heroku-cacheify/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>flask-heroku-cacheify</h1>
+
+<p>Automatic Flask cache configuration on Heroku.</p>
+
+<p><img src="https://raw.github.com/rdegges/flask-heroku-cacheify/master/assets/thinking-man-sketch.jpg" alt="Thinking Man Sketch"></p>
+
+<h2>Purpose</h2>
+
+<p>Configuring your cache on Heroku can be a time sink.  There are lots of
+different caching addons available on Heroku (Redis, Memcached, etc.), and among
+those -- lots of competitors.</p>
+
+<p><code>flask-heroku-cacheify</code> makes your life easy by automatically configuring your
+Flask application to work with whatever caching addons you've got provisioned
+on Heroku, allowing you to easily swap out addon providers at will, without any
+trouble.  And, just in case you don't have any suitable Heroku addons available,
+<code>flask-heroku-cacheify</code> will default back to using local memory for your cache!</p>
+
+<p>Instead of looking through documentation, testing stuff out, etc.,
+<code>flask-heroku-cacheify</code> will just do everything for you :)</p>
+
+<h2>Install</h2>
+
+<p>To install <code>flask-heroku-cacheify</code>, use <a href="http://pip.readthedocs.org/en/latest/">pip</a>.</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>pip install flask-heroku-cacheify
+</pre></div>
+
+<p><strong>NOTE</strong>: If you're install <code>flask-heroku-cacheify</code> locally, you'll need to
+have <code>libmecached-dev</code> installed on your OS (with SASL support).</p>
+
+<p>Next, modify your <code>requirements.txt</code> file in your home directory, and add the
+following to the bottom of your file:</p>
+
+<div class="highlight"><pre>Flask-Heroku-Cacheify&gt;<span class="o">=</span>1.2
+pylibmc&gt;<span class="o">=</span>1.2.3
+</pre></div>
+
+<p>The above will ensure that Heroku pulls in the required C header files (in case
+you decide to use memcached).  This step is <strong>required</strong>.</p>
+
+<h2>Pick an Addon</h2>
+
+<p>Heroku has lots of available addons you can use for caching.
+<code>flask-heroku-cacheify</code> currently works with them all!  That means no matter
+which option you choose, your cache will work out of the box, guaranteed!</p>
+
+<p>Below is a list of the addons you can install to get started, you should have at
+least one of these activated on your Heroku app -- otherwise, your cache will be
+in 'local memory' only, and won't be very useful.</p>
+
+<ul>
+<li><a href="https://addons.heroku.com/memcachier">MemCachier</a></li>
+<li><a href="https://addons.heroku.com/redisgreen">RedisGreen</a></li>
+<li><a href="https://addons.heroku.com/myredis">MyRedis</a></li>
+<li><a href="https://addons.heroku.com/rediscloud">Redis Cloud</a></li>
+<li><a href="https://addons.heroku.com/redistogo">Redis To Go</a></li>
+<li><a href="https://addons.heroku.com/openredis">openredis</a></li>
+</ul><p><strong>NOTE</strong> My favorite providers are MemCachier (for memcache), and openredis for
+redis.  Both are equally awesome as cache providers.</p>
+
+<h2>Usage</h2>
+
+<p>Using <code>flask-heroku-cacheify</code> is <em>super easy</em>!  In your <code>app.py</code> (or wherever
+you define your Flask application), add the following:</p>
+
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">flask.ext.cacheify</span> <span class="kn">import</span> <span class="n">init_cacheify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="n">init_cacheify</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</pre></div>
+
+<p>Once you've got your <code>cache</code> global defined, you can use it anywhere in your
+Flask app:</p>
+
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">cache</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">'hi'</span><span class="p">,</span> <span class="s">'there'</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'hi'</span><span class="p">)</span>
+<span class="s">'there'</span>
+</pre></div>
+
+<p>How does this work?  In the background, <code>flask-heroku-cacheify</code> is really just
+automatically configuring the popular
+<a href="http://pythonhosted.org/Flask-Cache/">Flask-Cache</a> extension!  This means, you
+can basically skip down to <a href="http://pythonhosted.org/Flask-Cache/#caching-view-functions">this
+part</a> of their
+documentation, and begin using all the methods listed there, without worrying
+about setting up your caches!  Neat, right?</p>
+
+<p>For more information and examples of how to use your cache, don't forget to read
+the <a href="http://pythonhosted.org/Flask-Cache/">Flask-Cache</a> documentation.</p>
+
+<h2>Like This?</h2>
+
+<p>Like this software?  If you really enjoy <code>flask-heroku-cacheify</code>, you can show
+your appreciation by:</p>
+
+<ul>
+<li>Sending me some bitcoin (my address is: <strong>17BE6Q6fRgxJutnn8NsQgeKnACFjzWLbQT</strong>).</li>
+<li>Tip me on <a href="https://www.gittip.com/rdegges/">gittip</a>.</li>
+</ul><p>Either way, thanks!  &lt;3</p>
+
+<h2>Changelog</h2>
+
+<p>v1.2: 04-18-2013</p>
+
+<pre><code>- Adding proper documentation.
+</code></pre>
+
+<p>v1.1: 04-18-2013</p>
+
+<pre><code>- Adding support for MyRedis.
+- Adding support for Redis Cloud.
+- Adding support for Redis To Go.
+- Adding support for openredis.
+</code></pre>
+
+<p>v1.0: 04-18-2013</p>
+
+<pre><code>- Fixing bug with RedisGreen support.
+</code></pre>
+
+<p>v0.9: 04-18-2013</p>
+
+<pre><code>- First *real* release! Supports MemCachier and RedisGreen!
+</code></pre>
+
+<p>v0.8: 04-18-2013</p>
+
+<pre><code>- Pushing eigth release to PyPI (don't use this still!).
+</code></pre>
+
+<p>v0.7: 04-18-2013</p>
+
+<pre><code>- Pushing seventh release to PyPI (don't use this still!).
+</code></pre>
+
+<p>v0.6: 04-18-2013</p>
+
+<pre><code>- Pushing sixth release to PyPI (don't use this still!).
+</code></pre>
+
+<p>v0.5: 04-18-2013</p>
+
+<pre><code>- Pushing fifth release to PyPI (don't use this still!).
+</code></pre>
+
+<p>v0.4: 04-18-2013</p>
+
+<pre><code>- Pushing fourth release to PyPI (don't use this still!).
+</code></pre>
+
+<p>v0.3: 04-18-2013</p>
+
+<pre><code>- Pushing third release to PyPI (don't use this still!).
+</code></pre>
+
+<p>v0.2: 04-18-2013</p>
+
+<pre><code>- Pushing second release to PyPI (don't use this still!).
+</code></pre>
+
+<p>v0.1: 04-18-2013</p>
+
+<pre><code>- Pushing first release to PyPI (don't use this yet!).
+</code></pre>
+
+<p>v0.0: 04-14-2013</p>
+
+<pre><code>- Started work &gt;:)
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Flask-heroku-cacheify maintained by <a href="https://github.com/rdegges">rdegges</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
