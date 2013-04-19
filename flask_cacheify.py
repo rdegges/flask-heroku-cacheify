@@ -27,4 +27,9 @@ def init_cacheify(app, config=None):
         config.setdefault('CACHE_MEMCACHED_PASSWORD',
                 environ.get('MEMCACHIER_PASSWORD'))
 
+    # Look for RedisGreen.
+    if any([k.startswith('REDISGREEN_') for k in environ]):
+        config.setdefault('CACHE_TYPE', 'redis')
+        config.setdefault('CACHE_REDIS_URL', environ.get('REDISGREEN_URL'))
+
     return Cache(app, config)

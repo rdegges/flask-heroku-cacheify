@@ -36,6 +36,10 @@ TODO
 
 ## Changelog
 
+v0.9: 04-18-2013
+
+    - First *real* release! Supports MemCachier and RedisGreen!
+
 v0.8: 04-18-2013
 
     - Pushing eigth release to PyPI (don't use this still!).
