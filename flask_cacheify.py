@@ -13,7 +13,7 @@ class Cacheify(object):
         self.config = config
 
         if app is not None:
-            self.init_app(app, config)
+            return self.init_app(app, config)
 
     def init_app(self, app, config=None):
         """Initialize an appropriate cache for your Flask application."""
@@ -28,7 +28,7 @@ class Cacheify(object):
             config = app.config
 
         self.set_preferred(self.get_addons(), config)
-        self = Cache(app, config)
+        return Cache(app, config)
 
     def get_addons(self):
         """Scan for environment variables that allow us to hook up to

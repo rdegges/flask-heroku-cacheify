@@ -36,6 +36,10 @@ TODO
 
 ## Changelog
 
+v0.6: 04-18-2013
+
+    - Pushing sixth release to PyPI (don't use this still!).
+
 v0.5: 04-18-2013
 
     - Pushing fifth release to PyPI (don't use this still!).
