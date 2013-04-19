@@ -15,6 +15,7 @@ def init_cacheify(app, config=None):
                 'NoneType.')
 
     config = config if config else app.config
+    config.setdefault('CACHE_TYPE', 'simple')
 
     # Look for MemCachier.
     if any([k.startswith('MEMCACHIER_') for k in environ]):
