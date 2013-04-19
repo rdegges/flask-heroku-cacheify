@@ -105,7 +105,7 @@ Like this software?  If you really enjoy `flask-heroku-cacheify`, you can show
 your appreciation by:
 
 - Sending me some bitcoin, my address is: **17BE6Q6fRgxJutnn8NsQgeKnACFjzWLbQT**
-- Tip me on [gittip](https://www.gittip.com/rdegges/).
+- Tipping me on [gittip](https://www.gittip.com/rdegges/).
 
 Either way, thanks!  <3
 
