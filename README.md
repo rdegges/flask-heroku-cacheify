@@ -36,6 +36,10 @@ TODO
 
 ## Changelog
 
+v0.2: 04-18-2013
+
+    - Pushing second release to PyPI (don't use this still!).
+
 v0.1: 04-18-2013
 
     - Pushing first release to PyPI (don't use this yet!).
