@@ -7,7 +7,7 @@ setup(
 
     # Basic package information:
     name = 'Flask-Heroku-Cacheify',
-    version = '0.3',
+    version = '0.4',
     py_modules = ('flask_cacheify', ),
 
     # Packaging options:
