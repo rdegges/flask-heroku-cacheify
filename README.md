@@ -46,10 +46,43 @@ you decide to use memcached).  This step is **required**.
 
 ## Usage
 
-TODO
+Using `flask-heroku-cacheify` is *super easy*!  In your `app.py` (or wherever
+you define your Flask application), add the following:
+
+```python
+from flask.ext.cacheify import init_cacheify
+
+app = Flask(__name__)
+cache = init_cacheify(app)
+```
+
+Once you've got your `cache` global defined, you can use it anywhere in your
+Flask app:
+
+```python
+>>> from app import cache
+>>> cache.set('hi', 'there', 30)
+>>> cache.get('hi')
+'there'
+```
+
+How does this work?  In the background, `flask-heroku-cacheify` is really just
+automatically configuring the popular
+[Flask-Cache](http://pythonhosted.org/Flask-Cache/) extension!  This means, you
+can basically skip down to [this
+part](http://pythonhosted.org/Flask-Cache/#caching-view-functions) of their
+documentation, and begin using all the methods listed there, without worrying
+about setting up your caches!  Neat, right?
+
+For more information and examples of how to use your cache, don't forget to read
+the [Flask-Cache](http://pythonhosted.org/Flask-Cache/) documentation.
 
 
 ## Changelog
+
+v1.2: 04-18-2013
+
+    - Adding proper documentation.
 
 v1.1: 04-18-2013
 
