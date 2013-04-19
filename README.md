@@ -14,7 +14,8 @@ those -- lots of competitors.
 `flask-heroku-cacheify` makes your life easy by automatically configuring your
 Flask application to work with whatever caching addons you've got provisioned
 on Heroku, allowing you to easily swap out addon providers at will, without any
-trouble.
+trouble.  And, just in case you don't have any suitable Heroku addons available,
+`flask-heroku-cacheify` will default back to using local memory for your cache!
 
 Instead of looking through documentation, testing stuff out, etc.,
 `flask-heroku-cacheify` will just do everything for you :)
@@ -27,6 +28,20 @@ To install `flask-heroku-cacheify`, use [pip](http://pip.readthedocs.org/en/late
 ```bash
 $ pip install flask-heroku-cacheify
 ```
+
+**NOTE**: If you're install `flask-heroku-cacheify` locally, you'll need to
+have `libmecached-dev` installed on your OS (with SASL support).
+
+Next, modify your `requirements.txt` file in your home directory, and add the
+following to the bottom of your file:
+
+```bash
+Flask-Heroku-Cacheify>=1.2
+pylibmc>=1.2.3
+```
+
+The above will ensure that Heroku pulls in the required C header files (in case
+you decide to use memcached).  This step is **required**.
 
 
 ## Usage
