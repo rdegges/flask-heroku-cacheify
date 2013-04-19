@@ -62,7 +62,11 @@ in 'local memory' only, and won't be very useful.
 - [openredis](https://addons.heroku.com/openredis)
 
 **NOTE** My favorite providers are MemCachier (for memcache), and openredis for
-redis.  Both are equally awesome as cache providers.
+redis.  Both are equally awesome as cache providers.  If you're in need of a
+stable cache provider for large applications, I'd recommend
+[RedisGreen](https://addons.heroku.com/redisgreen) -- they use dedicated EC2
+instances (which greatly improves your server power) and have an excellent
+interface.
 
 
 ## Usage
