@@ -28,7 +28,12 @@ class Cacheify(object):
             config = app.config
 
         self.set_preferred(self.get_addons(), config)
-        Cache(app)
+
+        if not hasattr(app, 'extensions'):
+            app.extensions = {}
+
+        app.extensions.setdefault('cache', {})
+        app.extensions['cacheify'][self] = Cache(app, config)
 
     def get_addons(self):
         """Scan for environment variables that allow us to hook up to
