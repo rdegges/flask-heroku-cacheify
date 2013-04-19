@@ -44,6 +44,27 @@ The above will ensure that Heroku pulls in the required C header files (in case
 you decide to use memcached).  This step is **required**.
 
 
+## Pick an Addon
+
+Heroku has lots of available addons you can use for caching.
+`flask-heroku-cacheify` currently works with them all!  That means no matter
+which option you choose, your cache will work out of the box, guaranteed!
+
+Below is a list of the addons you can install to get started, you should have at
+least one of these activated on your Heroku app -- otherwise, your cache will be
+in 'local memory' only, and won't be very useful.
+
+- [MemCachier](https://addons.heroku.com/memcachier)
+- [RedisGreen](https://addons.heroku.com/redisgreen)
+- [MyRedis](https://addons.heroku.com/myredis)
+- [Redis Cloud](https://addons.heroku.com/rediscloud)
+- [Redis To Go](https://addons.heroku.com/redistogo)
+- [openredis](https://addons.heroku.com/openredis)
+
+**NOTE** My favorite providers are MemCachier (for memcache), and openredis for
+redis.  Both are equally awesome as cache providers.
+
+
 ## Usage
 
 Using `flask-heroku-cacheify` is *super easy*!  In your `app.py` (or wherever
