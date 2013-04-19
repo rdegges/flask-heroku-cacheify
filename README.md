@@ -36,6 +36,13 @@ TODO
 
 ## Changelog
 
+v1.1: 04-18-2013
+
+    - Adding support for MyRedis.
+    - Adding support for Redis Cloud.
+    - Adding support for Redis To Go.
+    - Adding support for openredis.
+
 v1.0: 04-18-2013
 
     - Fixing bug with RedisGreen support.

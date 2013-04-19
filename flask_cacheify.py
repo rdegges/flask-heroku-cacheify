@@ -28,8 +28,28 @@ def init_cacheify(app, config=None):
                 environ.get('MEMCACHIER_PASSWORD'))
 
     # Look for RedisGreen.
-    if any([k.startswith('REDISGREEN_') for k in environ]):
+    elif any([k.startswith('REDISGREEN_') for k in environ]):
         config['CACHE_TYPE'] = 'redis'
         config.setdefault('CACHE_REDIS_URL', environ.get('REDISGREEN_URL'))
+
+    # Look for MyRedis.
+    elif any([k.startswith('MYREDIS_') for k in environ]):
+        config['CACHE_TYPE'] = 'redis'
+        config.setdefault('CACHE_REDIS_URL', environ.get('MYREDIS_URL'))
+
+    # Look for Redis Cloud.
+    elif any([k.startswith('REDISCLOUD_') for k in environ]):
+        config['CACHE_TYPE'] = 'redis'
+        config.setdefault('CACHE_REDIS_URL', environ.get('REDISCLOUD_URL'))
+
+    # Look for Redis To Go.
+    elif any([k.startswith('REDISTOGO_') for k in environ]):
+        config['CACHE_TYPE'] = 'redis'
+        config.setdefault('CACHE_REDIS_URL', environ.get('REDISTOGO_URL'))
+
+    # Look for openredis.
+    elif any([k.startswith('OPENREDIS_') for k in environ]):
+        config['CACHE_TYPE'] = 'redis'
+        config.setdefault('CACHE_REDIS_URL', environ.get('OPENREDIS_URL'))
 
     return Cache(app, config)
