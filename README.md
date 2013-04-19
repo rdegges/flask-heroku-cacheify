@@ -36,6 +36,10 @@ TODO
 
 ## Changelog
 
+v1.0: 04-18-2013
+
+    - Fixing bug with RedisGreen support.
+
 v0.9: 04-18-2013
 
     - First *real* release! Supports MemCachier and RedisGreen!
