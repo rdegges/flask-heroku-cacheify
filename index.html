@@ -90,7 +90,11 @@ in 'local memory' only, and won't be very useful.</p>
 <li><a href="https://addons.heroku.com/redistogo">Redis To Go</a></li>
 <li><a href="https://addons.heroku.com/openredis">openredis</a></li>
 </ul><p><strong>NOTE</strong> My favorite providers are MemCachier (for memcache), and openredis for
-redis.  Both are equally awesome as cache providers.</p>
+redis.  Both are equally awesome as cache providers.  If you're in need of a
+stable cache provider for large applications, I'd recommend
+<a href="https://addons.heroku.com/redisgreen">RedisGreen</a> -- they use dedicated EC2
+instances (which greatly improves your server power) and have an excellent
+interface.</p>
 
 <h2>Usage</h2>
 
