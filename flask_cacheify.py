@@ -33,7 +33,7 @@ class Cacheify(object):
             app.extensions = {}
 
         app.extensions.setdefault('cache', {})
-        app.extensions['cacheify'][self] = Cache(app, config)
+        app.extensions['cache'][self] = Cache(app, config)
 
     def get_addons(self):
         """Scan for environment variables that allow us to hook up to
