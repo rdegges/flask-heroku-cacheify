@@ -6,7 +6,7 @@ from setuptools import setup
 setup(
 
     # Basic package information:
-    name = 'flask-heroku-cacheify',
+    name = 'Flask-Heroku-Cacheify',
     version = '0.1',
     py_modules = ('flask_cacheify', ),
 
