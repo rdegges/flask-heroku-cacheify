@@ -36,7 +36,7 @@ Next, modify your `requirements.txt` file in your home directory, and add the
 following to the bottom of your file:
 
 ```bash
-Flask-Heroku-Cacheify>=1.2
+Flask-Heroku-Cacheify>=1.3
 pylibmc>=1.2.3
 ```
 
@@ -115,6 +115,10 @@ Either way, thanks!  <3
 
 
 ## Changelog
+
+v1.3: 05-31-2012
+
+    - Fixing bug with memcachier support (thanks @eriktaubeneck)!
 
 v1.2: 04-18-2013
 
