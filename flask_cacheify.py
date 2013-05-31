@@ -19,7 +19,7 @@ def init_cacheify(app, config=None):
 
     # Look for MemCachier.
     if any([k.startswith('MEMCACHIER_') for k in environ]):
-        config.setdefault('CACHE_TYPE', 'saslmemcached')
+        config['CACHE_TYPE'] = 'saslmemcached'
         config.setdefault('CACHE_MEMCACHED_SERVERS',
                 [environ.get('MEMCACHIER_SERVERS')])
         config.setdefault('CACHE_MEMCACHED_USERNAME',
