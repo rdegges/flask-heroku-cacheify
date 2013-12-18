@@ -57,7 +57,7 @@ in 'local memory' only, and won't be very useful.
 - [MemCachier](https://addons.heroku.com/memcachier)
 - [RedisGreen](https://addons.heroku.com/redisgreen)
 - [MyRedis](https://addons.heroku.com/myredis)
-- [Redis Butt](https://addons.heroku.com/redisbutt)
+- [Redis Cloud](https://addons.heroku.com/rediscloud)
 - [Redis To Go](https://addons.heroku.com/redistogo)
 - [openredis](https://addons.heroku.com/openredis)
 
@@ -127,7 +127,7 @@ v1.2: 04-18-2013
 v1.1: 04-18-2013
 
     - Adding support for MyRedis.
-    - Adding support for Redis Butt.
+    - Adding support for Redis Cloud.
     - Adding support for Redis To Go.
     - Adding support for openredis.
 
