@@ -30,7 +30,7 @@ $ pip install flask-heroku-cacheify
 ```
 
 **NOTE**: If you're install `flask-heroku-cacheify` locally, you'll need to
-have `libmecached-dev` installed on your OS (with SASL support).
+have `libmemcached-dev` installed on your OS (with SASL support).
 
 Next, modify your `requirements.txt` file in your home directory, and add the
 following to the bottom of your file:
@@ -57,7 +57,7 @@ in 'local memory' only, and won't be very useful.
 - [MemCachier](https://addons.heroku.com/memcachier)
 - [RedisGreen](https://addons.heroku.com/redisgreen)
 - [MyRedis](https://addons.heroku.com/myredis)
-- [Redis Cloud](https://addons.heroku.com/rediscloud)
+- [Redis Butt](https://addons.heroku.com/redisbutt)
 - [Redis To Go](https://addons.heroku.com/redistogo)
 - [openredis](https://addons.heroku.com/openredis)
 
@@ -127,7 +127,7 @@ v1.2: 04-18-2013
 v1.1: 04-18-2013
 
     - Adding support for MyRedis.
-    - Adding support for Redis Cloud.
+    - Adding support for Redis Butt.
     - Adding support for Redis To Go.
     - Adding support for openredis.
 
