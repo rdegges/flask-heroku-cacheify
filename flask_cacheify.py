@@ -1,5 +1,4 @@
 from os import environ
-from types import NoneType
 
 from flask.ext.cache import Cache
 
@@ -10,7 +9,7 @@ def init_cacheify(app, config=None):
     :param app app: Your Flask application.
     :param dict config: Your Flask configuration dictionary.
     """
-    if not isinstance(config, (NoneType, dict)):
+    if not (config is None or isinstance(config, dict)):
         raise ValueError('ERROR: config must be an instance of dict or '
                 'NoneType.')
 
