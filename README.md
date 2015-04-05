@@ -116,6 +116,11 @@ Either way, thanks!  <3
 
 ## Changelog
 
+v1.4: 04-04-2015
+
+    - Fixing typos in README.
+    - Adding Python 3 compatibility.
+
 v1.3: 05-31-2012
 
     - Fixing bug with memcachier support (thanks @eriktaubeneck)!
