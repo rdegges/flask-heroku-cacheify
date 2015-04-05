@@ -30,7 +30,7 @@ $ pip install flask-heroku-cacheify
 ```
 
 **NOTE**: If you're install `flask-heroku-cacheify` locally, you'll need to
-have `libmecached-dev` installed on your OS (with SASL support).
+have `libmemcached-dev` installed on your OS (with SASL support).
 
 Next, modify your `requirements.txt` file in your home directory, and add the
 following to the bottom of your file:
