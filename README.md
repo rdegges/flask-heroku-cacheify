@@ -56,7 +56,6 @@ in 'local memory' only, and won't be very useful.
 
 - [MemCachier](https://addons.heroku.com/memcachier)
 - [RedisGreen](https://addons.heroku.com/redisgreen)
-- [MyRedis](https://addons.heroku.com/myredis)
 - [Redis Cloud](https://addons.heroku.com/rediscloud)
 - [Redis To Go](https://addons.heroku.com/redistogo)
 - [openredis](https://addons.heroku.com/openredis)
