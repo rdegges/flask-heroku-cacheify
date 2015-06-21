@@ -115,6 +115,10 @@ Either way, thanks!  <3
 
 ## Changelog
 
+v1.5: 06-20-2015
+
+    - Removing MyRedis addon support -- the addon has been shut down.
+
 v1.4: 04-04-2015
 
     - Fixing typos in README.
