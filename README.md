@@ -115,6 +115,10 @@ Either way, thanks!  <3
 
 ## Changelog
 
+1.6.0: 04-22-2017
+
+    - Upgrading to work with latest FLask release (thanks @mattstibbs).
+
 v1.5: 06-20-2015
 
     - Removing MyRedis addon support -- the addon has been shut down.
