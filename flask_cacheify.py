@@ -1,6 +1,6 @@
 from os import environ
 
-from flask.ext.cache import Cache
+from flask_cache import Cache
 
 
 def init_cacheify(app, config=None):
