@@ -7,7 +7,7 @@ setup(
 
     # Basic package information:
     name = 'Flask-Heroku-Cacheify',
-    version = '1.5',
+    version = '1.6.0',
     py_modules = ('flask_cacheify', ),
 
     # Packaging options:
@@ -28,7 +28,6 @@ setup(
     url = 'https://github.com/rdegges/flask-heroku-cacheify',
     keywords = 'flask heroku cloud cache memcache memcached redis awesome',
     description = 'Automatic Flask cache configuration on Heroku.',
-    long_description = open(normpath(join(dirname(abspath(__file__)),
-        'README.md'))).read()
+    long_description = open(normpath(join(dirname(abspath(__file__)), 'README.md'))).read()
 
 )
