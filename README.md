@@ -115,6 +115,11 @@ Either way, thanks!  <3
 
 ## Changelog
 
+1.6.1: 12-20-2017
+
+    - Update docs
+    - Updating code to support latest Flask release
+
 1.6.0: 04-22-2017
 
     - Upgrading to work with latest FLask release (thanks @mattstibbs).
