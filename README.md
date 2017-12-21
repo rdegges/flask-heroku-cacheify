@@ -74,7 +74,7 @@ Using `flask-heroku-cacheify` is *super easy*!  In your `app.py` (or wherever
 you define your Flask application), add the following:
 
 ```python
-from flask.ext.cacheify import init_cacheify
+from flask_cacheify import init_cacheify
 
 app = Flask(__name__)
 cache = init_cacheify(app)
